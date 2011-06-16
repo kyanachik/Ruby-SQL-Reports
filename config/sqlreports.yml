@@ -1,0 +1,18 @@
+development:
+  server: DevelopmentServer
+  username: username
+  password: password
+
+test:
+  server: TestServer
+  username: username
+  password: password
+
+production:
+  server: ProductionServer
+  username: username
+  password: password
+
+reports:
+  report1: /Reports Folder 1/Sales/Sales Report 1
+  report2: /Reports Folder 2/Accounting/Accounting Report 1

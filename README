@@ -1,0 +1,38 @@
+Ruby SQL Reports is a library (to be turned into a gem) that will call a Microsoft SQL Reports server through the SOAP protocol with optional parameters and return back a PDF file of the requested report.
+
+This library was designed within a Ruby on Rails application and the folder structure is setup as such, but in reality the code can be used in any Ruby project.
+
+==Required Gems==
+The following gems are required for the library:
+* savon (gem install savon).  This library was written using 0.8.1
+
+==The Code==
+The main code lies in the /lib/sqlreports.rb file.  It expects two global configuration hashes, one called SQLREPORTS_CONFIG and the other called SQLREPORTS_REPORTS.  The intiailizer for rails can be found in the /config/initiailizers/load_sqlreports_config.rb file. 
+
+==Sql Reports Configuration==
+The /configsqlreports.yml file defines the url and authentication for the SQL Reports servers for your environments and a reports configuration that easily defines the locations of all of your reports on the server.
+
+[environment]:
+  server: SQLReportServerName
+  username: username
+  password: password
+
+reports:
+  reportid1: /Location on SQL Reports Server
+  reportid2: /Location on SQL Reports Server
+
+==Calling a SQL Report==
+1. Create an array of report parameters
+2. Call the SqlReports print_report method passing the reportid of the report as defined in the config file and the report parameters
+3. (Optionally) A Rails controller can stream the rendered PDF as a file.
+
+  report_parameters = [
+    {:Name => "id", :Value => "1" }
+  ]
+
+  pdffile = Sqlreports.print_report 'reportid1', report_parameters
+
+  send_data(pdffile, :filename => "FileName.pdf", :type => "application/pdf")
+
+
+
