@@ -10,7 +10,7 @@ The following gems are required for the library:
 The main code lies in the /lib/sqlreports.rb file.  It expects two global configuration hashes, one called SQLREPORTS_CONFIG and the other called SQLREPORTS_REPORTS.  The intiailizer for rails can be found in the /config/initiailizers/load_sqlreports_config.rb file. 
 
 ==Sql Reports Configuration==
-The /configsqlreports.yml file defines the url and authentication for the SQL Reports servers for your environments and a reports configuration that easily defines the locations of all of your reports on the server.
+The /config/sqlreports.yml file defines the url and authentication for the SQL Reports servers for your environments and a reports configuration that easily defines the locations of all of your reports on the server.
 
 [environment]:
   server: SQLReportServerName
